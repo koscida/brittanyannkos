@@ -1,10 +1,245 @@
-$body-font-family: 'Dosis', helvetica, sans-serif;
-$body-font-size: 18px;
-$body-font-weight: 300;
-$body-line-height: 1.5em;
-$body-text-color: #404040;
 
-$body-background-color: #f8f8f8;
+/* Theme Colors */
+$color-purple: #91278F;
+    $color-purple2: #B147AF;
+    $color-purple-light: #B777B9;
+    $color-purple-deep: #3E2A59;
+    $color-purple-dark: #0A002E;
+$color-blue: #1882C4;
+    $color-blue-light: #51C0DA;
+    $color-blue-deep: #15035B;
+    $color-blue-dark: #000026;
+$color-navy: #464B82;
+$color-white: #FFFFFF;
+    $color-white-half: rgba(255, 255, 255, 0.5);
+$color-grey: #8C8CAC;
+    $color-grey-light: #DCDCFC;
+    $color-grey-dark: #4C4C6C;
+$color-black: #000;
+
+/*
+https://color.adobe.com/My-Color-Theme-color-theme-12090368/edit/?copy=true&base=2&rule=Custom&selected=4&name=Copy%20of%20My%20Color%20Theme&mode=rgb&rgbvalues=0.5686274509803921,0.15294117647058825,0.5607843137254902,0.7176470588235294,0.4666666666666667,0.7254901960784313,0.09411764705882353,0.5098039215686274,0.7686274509803922,0.3176470588235294,0.7529411764705882,0.8549019607843137,1,1,1&swatchOrder=0,1,2,3,4
+https://color.adobe.com/Captura-de-Tela-2019-02-13-%C3%A0s-16-color-theme-12028160/edit/?copy=true
+https://color.adobe.com/Kopie-von-Kopie-von-Avenue-of-the-Arts-Wyndham-Hotel-color-theme-12031232/edit/?copy=true&base=2&rule=Custom&selected=2&name=Copy%20of%20Kopie%20von%20Kopie%20von%20Avenue%20of%20the%20Arts%20Wyndham%20Hotel&mode=rgb&rgbvalues=0.14901960784313725,0.13333333333333333,0.13725490196078433,0.4745098039215686,0.4235294117647059,0.5490196078431373,0.24313725490196078,0.16470588235294117,0.34901960784313724,0.9490196078431372,0.9490196078431372,0.9490196078431372,0.5490196078431373,0.5490196078431373,0.5490196078431373&swatchOrder=0,1,2,3,4
+https://color.adobe.com/Kopie-von-Kopie-von-Kopie-von-Kopie-von-Mein-Color-Thema-color-theme-12025089/edit/?copy=true
+https://color.adobe.com/C%C3%B3pia-de-painel-imagetico-ultimate-finale-color-theme-12028929/edit/?copy=true&base=2&rule=Custom&selected=3&name=Copy%20of%20C%C3%B3pia%20de%20painel%20imagetico%20ultimate%20finale&mode=rgb&rgbvalues=0.945098,0.45098,0.533333,0.611765,0.262745,0.854902,0.0823529,0.0117647,0.356863,0,0,0.14902,0.941176,0.94902,0.94902&swatchOrder=0,1,2,3,4
+https://color.adobe.com/MoodBoardSpecialProbs2-color-theme-12051713/edit/?copy=true&base=2&rule=Custom&selected=1&name=Copy%20of%20MoodBoardSpecialProbs2&mode=rgb&rgbvalues=0.7568627450980392,0.07450980392156863,0.25098039215686274,0.27450980392156865,0.29411764705882354,0.5098039215686274,0.8588235294117647,0.4627450980392157,0.7333333333333333,1,1,1,0.42745098039215684,0.9019607843137255,0.9803921568627451&swatchOrder=0,1,2,3,4
+*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    
+    box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a img{
+    border:0;
+}
+figure{
+    position:relative;
+}
+figure img{
+    width:100%;
+}
+img {
+    width: 100%;
+}
+/* 
+ *	End resets
+ */
+
+
+
+
+
+/* **************** */
+/*		General		*/
+/* **************** */
+body, html {
+    font-family: 'Dosis', helvetica, sans-serif;
+ 	font-size: 20px;
+ 	font-weight: 300;
+ 	line-height: 1.75em;
+    color: $color-grey-light;
+}
+ 
+input, textarea, select {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 19pt;
+    font-weight: 300;
+    line-height: 1.75em;
+    color: $color-grey;
+}
+
+h2 {
+    font-size: 2em;
+    line-height: 1.75em;
+}
+p {
+	margin: 0 0 5px 0;
+	padding: 0;
+}
+a:hover {
+    text-decoration: underline;
+}
+ 
+
+/* **************** */
+/*		layout		*/
+/* **************** */
+.row, .block {
+    margin-bottom: 20px;
+}
+#main {
+    
+    > section.one {
+        background-image: linear-gradient(to bottom right, $color-purple, $color-navy);
+    }
+    > section.two {
+        background: $color-purple-deep;
+    }
+    > section.three {
+        background: $color-navy;
+    }
+    > section.four {
+        background: $color-blue-deep;
+    }
+    > section.five {
+        background: $color-purple;
+    }
+}
+
+
+/* ******************************** */
+/*		header and navigation		*/
+/* ******************************** */
+#header {
+    background: $color-blue-dark;
+    color: $color-white;
+    
+    #logo {
+        h1 {
+            color: $color-white;
+            font-weight: 600;
+			font-size: 1.25em;
+			line-height: 1em;
+        }
+        p {
+            color: $color-white-half;
+            font-size: 0.8em;
+			line-height: 1.25em;
+        }
+    }
+    
+    #nav {
+        ul li {
+            a {
+                color: $color-white-half;
+            }
+            a.active {
+                background: $color-black;
+                color: $color-white;
+            }
+            a.active span:before {
+                color: $color-purple2;
+            }
+            a span:before {
+                color: $color-grey-dark;
+            }
+        }        
+    }
+    
+    .icons {
+        a {
+            color: $color-grey-dark;
+        }
+        a:hover {
+            color: $color-white;
+        }
+    }
+}
+
+#intro {
+    h1 {
+        font-size: 3em;
+        line-height: 1.5em;
+    }
+    p {
+        font-size: 1.2em;
+    }
+}
+
+#headshot {
+    
+    .image.headshot200 {
+        width: 200px;
+        height: 200px;
+        right: 0;
+        top: 0;
+
+        img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 2px solid $color-white;
+        }
+    }
+}
+
+
+
+
+
+/*
+$body-background-color: $color-white;
 
 $h1-font-size: 2.5em;
 $h2-font-size: 2em;
@@ -18,27 +253,14 @@ $mediaBreakLargeMax: 1400px;
 $mediaBreakMediumMax: 1024px;
 $mediaBreakMediumMin: 768px;
 $mediaBreakSmallMax: 767px;
+*/
 
 
-body, html {
-	margin: 0;
-	padding: 0;
-	font-size: $body-font-size;
-	font-family: $body-font-family;
-	font-weight: $body-font-weight;
-	line-height: $body-line-height;
-	background: $body-background-color;
-	background-image: url('../images/white.png');
-	background-attachment: fixed;
-	color: $body-text-color;
-	height: 100%;
-}
+/* **************** */
+/*		General		*/
+/* **************** */
+/*
 
-* {
-	box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-}
 
 h1, h2, h3, h4 {
 	margin: 0;
@@ -60,10 +282,7 @@ h3 {
 	margin-bottom: 5px;
 	border-bottom: $h3-underline-border;
 }
-h4 {/*
-	@extend h3;
-	text-transform: none;
-	border-bottom-style: dotted; */
+h4 {
 }
 
 p {
@@ -99,14 +318,14 @@ li {
 	height: 1000px;
 	width: 20px;
 	background: pink;
-}
+} */
 
 
 
 
 /* **************** */
 /*		layout		*/
-/* **************** */
+/* **************** 
 header {
 	position: fixed;
 	width: 100%;
@@ -126,7 +345,8 @@ article {
 	}
 }
 footer {
-}
+}*/
+
 
 
 
@@ -134,7 +354,7 @@ footer {
 
 /* **************** */
 /*		Aside		*/
-/* **************** */
+/* **************** 
 aside {
 	#asidePointer {
 		border: #333;
@@ -163,14 +383,14 @@ aside {
 			}
 		}
 	}
-}
+}*/
 
 
 
 
 /* **************** */
 /*		header		*/
-/* **************** */
+/* **************** 
 header {
 	-webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
 	-moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
@@ -318,7 +538,7 @@ header {
 			}
 		}
 	}
-}
+}*/
 
 
 
@@ -326,7 +546,7 @@ header {
 
 /* **************** */
 /*		footer		*/
-/* **************** */
+/* **************** 
 footer {
 	display: none;
 	background: #282828;
@@ -352,7 +572,7 @@ footer {
 @media only screen and (max-width: 767px) {
 	footer { height: auto; }
 	#midFootBar { display: none; }
-}
+}*/
 
 
 
@@ -366,7 +586,7 @@ footer {
 	box-shadow: 		0 0 5px #444;
 	-moz-box-shadow:    0 0 5px #444;
 	-webkit-box-shadow: 0 0 5px #444;
-}*/
+}
 .social_link {
     margin-top: 10px;
 	margin-bottom: 10px;
@@ -420,7 +640,7 @@ footer {
 	.social_link.column6 {
 		width: 98%;
 	}
-}
+}*/
 
 
 
@@ -428,7 +648,7 @@ footer {
 
 /* **************** */
 /*		CV			*/
-/* **************** */
+/* **************** 
 .cv_title {
 	display: inline-block;
 }
@@ -443,7 +663,7 @@ footer {
 .cv_sec_sub h3 {
 	text-transform: none;
 	border-bottom-style: dotted;
-}
+}*/
 
 
 
@@ -452,7 +672,7 @@ footer {
 
 /* **************************** */
 /*		publications			*/
-/* **************************** */
+/* **************************** 
 .publication h3 {
 	font-weight: bold;
 }
@@ -462,4 +682,4 @@ footer {
 .abstract-text {
 	height: 81px;
     overflow: hidden;
-}
+}*/
