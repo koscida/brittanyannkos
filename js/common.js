@@ -5,6 +5,7 @@ var timer = null;
 
 var doit;
 
+/*
 window.onload = function() {
 
 	addContactInfo();
@@ -16,7 +17,7 @@ function addContactInfo() {
 	if(document.getElementById("brit_phone"))
 		document.getElementById("brit_phone").innerHTML = "720-270-5003";
 }
-
+*/
 
 
 
@@ -25,7 +26,7 @@ function addContactInfo() {
  * Navigation
  * Navigation for mobile. Opens and closes the navigation when the hamburger button gets pressed.
  */
-var toggled = false;
+/*var toggled = false;
 
 document.getElementById('navigationIcon').onclick = function(){
 	var $this = document.getElementById('navigationIcon');
@@ -40,7 +41,7 @@ document.getElementById('navigationIcon').onclick = function(){
 	}
 	toggled = !toggled;
 };
-
+*/
 
 
 

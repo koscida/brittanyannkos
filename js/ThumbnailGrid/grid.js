@@ -195,9 +195,11 @@ var Grid = (function() {
 			speed : 350,
 			easing : 'ease'
 		};
+	console.log($grid);
+	console.log($items);
 
 	function init( config ) {
-		
+		console.log("function: init -- Current: " + current)
 		// the settings..
 		settings = $.extend( true, {}, settings, config );
 
@@ -212,14 +214,13 @@ var Grid = (function() {
 			initEvents();
 
 		} );
-
 	}
 
 	// add more items to the grid.
 	// the new items need to appended to the grid.
 	// after that call Grid.addItems(theItems);
 	function addItems( $newitems ) {
-
+		console.log("function: addItems -- Current: " + current)
 		$items = $items.add( $newitems );
 
 		$newitems.each( function() {
@@ -236,6 +237,7 @@ var Grid = (function() {
 
 	// saves the item´s offset top and height (if saveheight is true)
 	function saveItemInfo( saveheight ) {
+		console.log("function: saveItemInfo -- Current: " + current)
 		$items.each( function() {
 			var $item = $( this );
 			$item.data( 'offsetTop', $item.offset().top );
@@ -246,7 +248,7 @@ var Grid = (function() {
 	}
 
 	function initEvents() {
-		
+		console.log("function: initEvents -- Current: " + current)
 		// when clicking an item, show the preview with the item´s info and large image.
 		// close the item if already expanded.
 		// also close if clicking on the item´s cross
@@ -271,6 +273,7 @@ var Grid = (function() {
 	}
 
 	function initItemsEvents( $items ) {
+		console.log("function: initItemsEvents -- Current: " + current)
 		$items.on( 'click', 'span.og-close', function() {
 			hidePreview();
 			return false;
@@ -289,7 +292,7 @@ var Grid = (function() {
 	}
 
 	function showPreview( $item ) {
-
+		console.log("function: showPreview -- Current: " + current)
 		var preview = $.data( this, 'preview' ),
 			// item´s offset top
 			position = $item.data( 'offsetTop' );
@@ -325,6 +328,7 @@ var Grid = (function() {
 	}
 
 	function hidePreview() {
+		console.log("function: hidePreview -- Current: " + current)
 		current = -1;
 		var preview = $.data( this, 'preview' );
 		preview.close();
@@ -333,6 +337,7 @@ var Grid = (function() {
 
 	// the preview obj / overlay
 	function Preview( $item ) {
+		console.log("function: Preview -- Current: " + current)
 		this.$item = $item;
 		this.expandedIdx = this.$item.index();
 		this.create();
@@ -341,23 +346,24 @@ var Grid = (function() {
 
 	Preview.prototype = {
 		create : function() {
+			console.log("Preview function: create -- Current: " + current)
 			// create Preview structure:
-			this.$title = $( '<h3></h3>' );
-			this.$description = $( '<p class="description"></p>' );
-			// this.$href = $( '<a href="#">Visit website</a>' );
-            this.$separator = ( '<hr class="separator"/>' );
-            this.$role = $( '<p class="role"></p>' );
-            this.$date = $( '<p class="date"></p>' );
-			//this.$website = $( '<p class="website"></p>' ); TODO
-            //this.$syllabus = $( '<p class="syllabus"></p>' );
-            //this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$description, this.$separator, this.$role, this.$date, this.$website, this.$syllabus);
-            this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$description, this.$separator, this.$role, this.$date);
-                // this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$description, this.$href );
+			this.$closePreview = $( '<span class="og-close"></span>' );
+			
 			this.$loading = $( '<div class="og-loading"></div>' );
 			this.$fullimage = $( '<div class="og-fullimg"></div>' ).append( this.$loading );
-			this.$closePreview = $( '<span class="og-close"></span>' );
+			
+			this.$title			= $( '<h3></h3>' );
+			this.$separator		= ( '<hr class="separator"/>' );
+            this.$date          = $( '<p class="date"></p>' );
+            this.$role          = $( '<p class="role"></p>' );
+			this.$description	= $( '<p class="description"></p>' );
+			this.$links			= $( '<p class="links"></p>' );
+            this.$details		= $( '<div class="og-details"></div>' ).append( this.$title, this.$date, this.$role, this.$separator, this.$description, this.$separator, this.$links);
+			
 			this.$previewInner = $( '<div class="og-expander-inner"></div>' ).append( this.$closePreview, this.$fullimage, this.$details );
 			this.$previewEl = $( '<div class="og-expander"></div>' ).append( this.$previewInner );
+			
 			// append preview element to the item
 			this.$item.append( this.getEl() );
 			// set the transitions for the preview and the item
@@ -366,22 +372,28 @@ var Grid = (function() {
 			}
 		},
 		update : function( $item ) {
-
+			console.log("Preview function: update -- Current: " + current)
 			if( $item ) {
 				this.$item = $item;
 			}
 			
-			// if already expanded remove class "og-expanded" from current item and add it to new item
-			if( current !== -1 ) {
+			// if already expanded remove class "og-expanded" from current item and add it to new item, unset hight on current
+			console.log("Current: " + current)
+			if( current > -1 ) {
+				// move class
 				var $currentItem = $items.eq( current );
 				$currentItem.removeClass( 'og-expanded' );
 				this.$item.addClass( 'og-expanded' );
+				// unset height 
+				$currentItem.css( 'height', "auto" );
 				// position the preview correctly
 				this.positionPreview();
 			}
-
+			
 			// update current value
-			current = this.$item.index();
+			//current = this.$item.index();
+			current = $items.index( this.$item );
+			console.log("Current: " + current)
 
 			// update preview´s content
 			var $itemEl = this.$item.children( 'a' ),
@@ -391,17 +403,14 @@ var Grid = (function() {
 					description : $itemEl.data( 'description' ),
                     role : $itemEl.data( 'role' ),
                     date : $itemEl.data( 'date' ),
-                    //website : $itemEl.data( 'website' ), TODO
-                    //syllabus : $itemEl.data( 'syllabus' ),
+                    links : $itemEl.data( 'links' ),
 				};
 
 			this.$title.html( eldata.title );
+			this.$date.html( eldata.date );
+			this.$role.html( eldata.role );
 			this.$description.html( eldata.description );
-			//this.$href.attr( 'href', eldata.href );
-            this.$role.html( eldata.role );
-            this.$date.html( eldata.date );
-			//this.$website.html( eldata.website ); TODO
-            //this.syllabus.html( eldata.syllabus );
+			this.$links.html( eldata.links );
             
 			var self = this;
 			
@@ -427,7 +436,7 @@ var Grid = (function() {
 
 		},
 		open : function() {
-
+			console.log("Preview function: open -- Current: " + current)
 			setTimeout( $.proxy( function() {	
 				// set the height for the preview and the item
 				this.setHeights();
@@ -437,7 +446,7 @@ var Grid = (function() {
 
 		},
 		close : function() {
-
+			console.log("Preview function: close -- Current: " + current)
 			var self = this,
 				onEndFn = function() {
 					if( support ) {
@@ -467,7 +476,7 @@ var Grid = (function() {
 
 		},
 		calcHeight : function() {
-
+			console.log("Preview function: calcHeight -- Current: " + current)
 			var heightPreview = winsize.height - this.$item.data( 'height' ) - marginExpanded,
 				itemHeight = winsize.height;
 
@@ -481,7 +490,7 @@ var Grid = (function() {
 
 		},
 		setHeights : function() {
-
+			console.log("Preview function: setHeights -- Current: " + current)
 			var self = this,
 				onEndFn = function() {
 					if( support ) {
@@ -500,7 +509,7 @@ var Grid = (function() {
 
 		},
 		positionPreview : function() {
-
+			console.log("Preview function: positionPreview -- Current: " + current)
 			// scroll page
 			// case 1 : preview height + item height fits in window´s height
 			// case 2 : preview height + item height does not fit in window´s height and preview height is smaller than window´s height
@@ -513,10 +522,12 @@ var Grid = (function() {
 
 		},
 		setTransition  : function() {
+			console.log("Preview function: setTransition -- Current: " + current)
 			this.$previewEl.css( 'transition', 'height ' + settings.speed + 'ms ' + settings.easing );
 			this.$item.css( 'transition', 'height ' + settings.speed + 'ms ' + settings.easing );
 		},
 		getEl : function() {
+			console.log("Preview function: getEl -- Current: " + current)
 			return this.$previewEl;
 		}
 	}

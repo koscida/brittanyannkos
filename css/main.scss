@@ -127,6 +127,21 @@ p {
 	margin: 0 0 5px 0;
 	padding: 0;
 }
+a {
+	text-decoration: none;
+	color: inherit;
+	border-bottom: dotted 1px rgba(128, 128, 128, 0.5);
+	-moz-transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+	-webkit-transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+	-ms-transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+	transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+	outline: 0;
+}
+
+	a:hover {
+		color: $color-white;
+		border-bottom-color: rgba(255, 255, 255, 0);
+	}
 a:hover {
     text-decoration: underline;
 }
