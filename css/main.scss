@@ -164,13 +164,13 @@ a {
     
     > section.one {
         background: linear-gradient(225deg, $color-purple, $color-navy);
-		background-size: 400% 400%;
-		animation: colorchange 5s ease infinite;
+		background-size: 200% 200%;
+		animation: colorchange 10s ease infinite;
     }
 		@keyframes colorchange {
-			0%{background-position:0% 50%}
+			0%{background-position:0% 0%}
       		50%{background-position:100% 50%}
-      		100%{background-position:0% 50%}
+      		100%{background-position:0% 00%}
 	    }
     > section.two {
     background: $color-purple-deep;

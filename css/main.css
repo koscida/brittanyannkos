@@ -128,15 +128,15 @@ a {
 /* **************** */
 #main > section.one {
   background: linear-gradient(225deg, #91278F, #464B82);
-  background-size: 400% 400%;
-  animation: colorchange 5s ease infinite; }
+  background-size: 200% 200%;
+  animation: colorchange 10s ease infinite; }
 @keyframes colorchange {
   0% {
-    background-position: 0% 50%; }
+    background-position: 0% 0%; }
   50% {
     background-position: 100% 50%; }
   100% {
-    background-position: 0% 50%; } }
+    background-position: 0% 00%; } }
 #main > section.two {
   background: #3E2A59; }
 #main > section.three {
